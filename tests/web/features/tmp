@@ -1,0 +1,27 @@
+
+    @VDCPORTALS-160
+    Scenario: [OK]Login
+        Given goto page
+          And select language "en"
+         When set "name" to "Aurigae"
+          And set "password" to "AUrig@e123"
+          And clear input "tenant"
+          And login
+         Then Open main section of App
+          And userdata in header is equal to "Aurigae (Primary)"
+
+
+            Scenario: [OK]Login vRA
+              Given goto page
+               When set "username" to "qa743jri.admin"
+                And set "password" to "VMware01!"
+                And login
+               Then Open main section of App
+                And userdata in header is equal to "Bienvenido/a, Organization Admin for qa743jri qa743jri.admin."
+
+            Scenario: [NOK]Login vRA
+              Given goto page
+               When set "username" to "qa743jri.admin"
+                And set "password" to "Pass_Falsa"
+                And login
+               Then Show Message "Las credenciales son incorrectas."
