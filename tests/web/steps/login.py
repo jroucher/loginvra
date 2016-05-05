@@ -24,7 +24,7 @@ def step_impl(context, inputname):
 @when('login')
 def step_impl(context):
     context.current_page.loginBtn.click();
-    context.current_page.loginBtn.click();
+#    context.current_page.loginBtn.click();
 
 @then('Show Message "{message}"')
 def step_impl(context, message):
@@ -47,7 +47,8 @@ def step_impl(context, portal):
         context.current_page.vcd.click();
     else:
         context.current_page.vra.click();
-
+    context.current_page.loginBtn.click();
+    
 @then('userdata in header is equal to "{userdata}"')
 def step_impl(context, userdata):
     realUserdata = context.current_page.getUserName().text;
